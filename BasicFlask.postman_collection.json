@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "383498c9-572d-4c7c-b6ff-d436cea1720a",
+		"name": "BasicFlask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				},
+				"description": "Index\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"jev\", \"password\":\"12345789\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Secure Bearer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTEyODkyNTAsIm5iZiI6MTU5MTI4OTI1MCwianRpIjoiM2ZjODFlNDUtNDk4Mi00YmFkLThiYzItODA3YmRjNzczMmNlIiwiZXhwIjoxNTkxMzc1NjUwLCJpZGVudGl0eSI6ImpldiIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.ufyFdi32upByXhE8vwRE7nalAEf7mYkH-codOAnodvI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"jev\", \"password\":\"12345789\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/secure",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"secure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTEyODkyNTAsIm5iZiI6MTU5MTI4OTI1MCwianRpIjoiM2ZjODFlNDUtNDk4Mi00YmFkLThiYzItODA3YmRjNzczMmNlIiwiZXhwIjoxNTkxMzc1NjUwLCJpZGVudGl0eSI6ImpldiIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.ufyFdi32upByXhE8vwRE7nalAEf7mYkH-codOAnodvI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
