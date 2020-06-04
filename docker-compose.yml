@@ -4,13 +4,13 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        args:
-            - A_DEBUG=False
+            args:
+                - A_DEBUG=False
         restart: unless-stopped
         ports:
             - "5000:5000"
         depends_on: 
-            -redis
+            - redis
     redis:
         image: redis
         restart: unless-stopped

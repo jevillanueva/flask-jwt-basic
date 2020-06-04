@@ -7,7 +7,7 @@ COPY . .
 
 # expect a build-time variable
 ARG A_HOST="0.0.0.0"
-ARG A_PORT=5555
+ARG A_PORT=5000
 ARG A_DEBUG=False
 
 # use the value to set the ENV var default
