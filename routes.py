@@ -5,7 +5,7 @@ from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_r
 from flask import session, jsonify
 
 expires = timedelta(days=1)
-revoked_store = redis.StrictRedis(host='127.0.0.1', port=6379, db=0, decode_responses=True)
+revoked_store = redis.StrictRedis(host='redis', port=6379, db=0, decode_responses=True)
 
 class Index(Resource):
     def get(self):
@@ -22,7 +22,7 @@ class Login(Resource):
         print (data["password"])
         if data["password"] == "12345789":
             access_token = create_access_token(identity = data["username"], expires_delta=expires)
-            revoked_store.set(get_jti(access_token), "false")
+            revoked_store.set(get_jti(access_token), "false", expires*1.5)
             expiresTime = datetime.today() + expires
             return {"code":1, "message":"Token de acceso al sistema", "token": access_token, "expires": str(expiresTime) }
         else:
@@ -38,6 +38,6 @@ class Logout(Resource):
     @jwt_required
     def post(self):
         jti = get_raw_jwt()['jti']
-        revoked_store.set(jti, 'true')
+        revoked_store.set(jti, 'true', expires*1.5)
         return {"code": 1, "message": "Token Revoked"}
 
